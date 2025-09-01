@@ -4,7 +4,7 @@ data class Knjiga(
     private var naslov: String,
     private var isbn: Long,
     private var autori: List<Autor>,
-    private var izdavaci: String,
+    private var izdavac: String,
     private var izdanje: Int
 ){
     fun getNaslov(): String{
@@ -40,16 +40,16 @@ data class Knjiga(
         this.autori=autori
     }
     fun getIzdavac():String{
-        return this.izdavaci
+        return this.izdavac
     }
-    fun setIzdavac(izdavaci: String?){
-        if(izdavaci==null){
+    fun setIzdavac(izdavac: String?){
+        if(izdavac==null){
             throw NullPointerException("Izdavac ne sme biti null")
         }
-        if (izdavaci.isEmpty()){
+        if (izdavac.isEmpty()){
             throw IllegalArgumentException("Izdavac ne sme biti prazan")
         }
-        this.izdavaci=izdavaci
+        this.izdavac=izdavac
     }
     fun getIzdanje(): Int{
         return this.izdanje
@@ -70,7 +70,7 @@ data class Knjiga(
         if (izdanje != other.izdanje) return false
         if (naslov != other.naslov) return false
         if (autori != other.autori) return false
-        if (izdavaci != other.izdavaci) return false
+        if (izdavac != other.izdavac) return false
 
         return true
     }
@@ -80,12 +80,12 @@ data class Knjiga(
         result = 31 * result + izdanje
         result = 31 * result + naslov.hashCode()
         result = 31 * result + autori.hashCode()
-        result = 31 * result + izdavaci.hashCode()
+        result = 31 * result + izdavac.hashCode()
         return result
     }
 
     override fun toString(): String {
-        return "Knjiga(naslov='$naslov', isbn=$isbn, autori=$autori, izdavac='$izdavaci', izdanje=$izdanje)"
+        return "Knjiga(naslov='$naslov', isbn=$isbn, autori=$autori, izdavac='$izdavac', izdanje=$izdanje)"
     }
 
 
