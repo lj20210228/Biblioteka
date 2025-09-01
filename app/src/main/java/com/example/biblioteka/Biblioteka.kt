@@ -15,7 +15,8 @@ class Biblioteka: BibliotekaInterfejs {
         if (knjige.contains(knjiga))
             throw IllegalArgumentException("Knjiga vec postoji")
         knjige.add(knjiga)
-        return LocalDateTime.now()
+        return LocalDateTime.now().withNano(0)
+            .withSecond(0)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -35,7 +36,7 @@ class Biblioteka: BibliotekaInterfejs {
     }
 
     override fun pronadjiKnjigu(
-        autor: Autor,
+        autor: Autor?,
         isbn: Long,
         naslov: String,
         izdavac: String
