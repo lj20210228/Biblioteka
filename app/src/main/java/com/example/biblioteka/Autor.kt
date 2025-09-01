@@ -1,5 +1,8 @@
 package com.example.biblioteka
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Autor(
     private var ime: String,
     private var prezime: String

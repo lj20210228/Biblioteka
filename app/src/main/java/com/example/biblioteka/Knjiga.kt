@@ -1,5 +1,7 @@
 package com.example.biblioteka
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class Knjiga(
     private var naslov: String,
     private var isbn: Long,
